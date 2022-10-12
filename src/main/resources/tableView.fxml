@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="636.0" prefWidth="1075.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tableViewController">
+   <children>
+      <TableView fx:id="tableStudents" layoutX="14.0" layoutY="267.0" prefHeight="301.0" prefWidth="1050.0" styleClass="column-header-background">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="39.0" style="-fx-allignment: center;" text="ID" />
+          <TableColumn fx:id="nameCol" prefWidth="250.0" style="-fx-allignment: center;" text="NAME" />
+            <TableColumn fx:id="birthCol" prefWidth="138.0" style="-fx-allignment: center;" text="BIRTH DATE" />
+            <TableColumn fx:id="adressCol" prefWidth="231.0" style="-fx-allignment: center;" text="ADRESS" />
+            <TableColumn fx:id="emailCol" prefWidth="253.0" style="-fx-allignment: center;" text="EMAIL" />
+            <TableColumn fx:id="c2Col" prefWidth="138.0" style="-fx-allignment: center;" text="EDIT" />
+        </columns>
+         <stylesheets>
+            <URL value="@tableView.css" />
+            <URL value="@tableView.css" />
+         </stylesheets>
+      </TableView>
+      <Pane layoutY="121.0" prefHeight="5.0" prefWidth="1075.0" style="-fx-background-color: BLACK;" />
+      <Label layoutX="14.0" layoutY="46.0" prefHeight="44.0" prefWidth="296.0" text="Students Details">
+         <font>
+            <Font name="Bauhaus 93" size="38.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="44.0" fitWidth="32.0" layoutX="1043.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@61155.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="14.0" layoutY="145.0" prefHeight="102.0" prefWidth="304.0">
+         <children>
+            <ImageView fitHeight="101.0" fitWidth="131.0" onMouseClicked="#getAddView" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1200px-Add_user_icon_(blue).svg.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="refreshTable" fitHeight="96.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#refreshTable" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@download (2).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="102.0" fitWidth="150.0" layoutX="142.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" />
+   </children>
+</AnchorPane>
