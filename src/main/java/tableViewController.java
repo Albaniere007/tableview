@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import models.Student;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -38,9 +39,8 @@ public class tableViewController implements Initializable {
     private TableColumn<Student, String> birthCol;
 
 
-
     @FXML
-    private TableColumn<Student,String> c2Col;
+    private TableColumn<Student, String> c2Col;
 
     @FXML
     private TableColumn<Student, String> emailCol;
@@ -55,10 +55,10 @@ public class tableViewController implements Initializable {
     private TableView<Student> tableStudents;
 
 
-    String query ;
-    Connection connection ;
+    String query;
+    Connection connection;
     PreparedStatement preparedStatement;
-    ResultSet resultSet ;
+    ResultSet resultSet;
 
     Student student;
 
@@ -83,9 +83,6 @@ public class tableViewController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
-
 
 
     @FXML
@@ -147,9 +144,9 @@ public class tableViewController implements Initializable {
 
                         deleteIcon.setStyle(
                                 " -fx-cursor: hand ;"
-                                  + "-glyph-size:28px;"
-                                  + "-fx-fill:#ff1744;"
-                                  + "-fx-background-color:#FF0000;"
+                                        + "-glyph-size:28px;"
+                                        + "-fx-fill:#ff1744;"
+                                        + "-fx-background-color:#FF0000;"
 
 
                         );
@@ -179,25 +176,23 @@ public class tableViewController implements Initializable {
                         editIcon.setOnMouseClicked((MouseEvent event) -> {
 
                             student = tableStudents.getSelectionModel().getSelectedItem();
-                            FXMLLoader loader = new FXMLLoader ();
+                            FXMLLoader loader = new FXMLLoader();
                             loader.setLocation(getClass().getResource("/addStudent.fxml"));
                             try {
                                 loader.load();
                             } catch (IOException ex) {
-                                Logger.getLogger(tableViewController.class.getName()).log(Level.SEVERE, null, ex);
+                                ex.printStackTrace();
                             }
 
                             addStudentController addStudentController = loader.getController();
                             addStudentController.setUpdate(true);
                             addStudentController.setTextField(student.getId(), student.getName(),
-                            student.getBirth().toLocalDate(),student.getAdress(), student.getEmail());
+                                    student.getBirth().toLocalDate(), student.getAdress(), student.getEmail());
                             Parent parent = loader.getRoot();
                             Stage stage = new Stage();
                             stage.setScene(new Scene(parent));
                             stage.initStyle(StageStyle.UNDECORATED);
                             stage.show();
-
-
 
 
                         });

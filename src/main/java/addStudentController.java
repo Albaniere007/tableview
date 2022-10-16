@@ -56,7 +56,7 @@ public class addStudentController implements Initializable {
     private void save(MouseEvent event) {
         connection= DbConnect.getConnect();
         String name= nameFid.getText();
-        String birth=String.valueOf(birthFid);
+        String birth=String.valueOf(birthFid.getValue());
         String adress=adressFid.getText();
         String email=emailFid.getText();
 
@@ -81,9 +81,10 @@ public class addStudentController implements Initializable {
         stage.close();
     }
     private void getQuery() {
-        if (update==false){
+        if (!update){
             query="INSERT INTO student( name, birth, adress, email) VALUES ( ?,?,?,?)";
-        }else{
+        }
+        else{
             query="UPDATE student SET name=?, birth=?, adress=?, email=? WHERE id='"+studentId+"'";
         }
 }
@@ -104,9 +105,18 @@ public class addStudentController implements Initializable {
 
 
         public void setTextField(int id, String name, LocalDate toLocalDate, String adress, String email) {
+
+                studentId=id;
+                nameFid.setText(name);
+                birthFid.setValue(toLocalDate);
+                adressFid.setText(adress);
+                emailFid.setText(email);
+
+
         }
 
         public void setUpdate(boolean b) {
+            this.update=b;
         }
 
 }
